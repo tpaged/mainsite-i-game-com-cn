@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://tpaged.github.io/mainsite-i-game-com-cn/sitemap.xml

@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>爱游戏 · 再次光临指南</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #f9f8f6;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Microsoft YaHei", sans-serif;
+            color: #2e2e2e;
+            line-height: 1.7;
+            padding: 2.5rem 1.2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .page-wrapper {
+            max-width: 720px;
+            width: 100%;
+        }
+
+        /* 头部 */
+        .site-header {
+            margin-bottom: 2.8rem;
+            border-bottom: 1px solid #e6e3de;
+            padding-bottom: 1.2rem;
+        }
+
+        .site-header h1 {
+            font-size: 1.7rem;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            color: #1f1f1f;
+        }
+
+        .site-header .sub {
+            font-size: 0.9rem;
+            color: #7a7a7a;
+            margin-top: 0.3rem;
+        }
+
+        /* 卡片通用 */
+        .card {
+            background: #ffffff;
+            padding: 1.8rem 2rem;
+            margin-bottom: 1.8rem;
+            border-radius: 16px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02), 0 0 0 1px #f0ede8;
+            transition: box-shadow 0.2s;
+        }
+
+        .card:hover {
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04), 0 0 0 1px #ddd8d0;
+        }
+
+        .card h2 {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: #2c2c2c;
+            margin-bottom: 0.8rem;
+            padding-bottom: 0.4rem;
+            border-bottom: 1px dashed #e3ddd5;
+        }
+
+        .card p, .card li {
+            font-size: 0.95rem;
+            color: #3d3d3d;
+        }
+
+        .card ul {
+            padding-left: 1.2rem;
+            margin: 0.6rem 0;
+        }
+
+        .card li {
+            margin-bottom: 0.4rem;
+        }
+
+        .tag {
+            display: inline-block;
+            background: #f3efe9;
+            padding: 0.1rem 0.7rem;
+            border-radius: 30px;
+            font-size: 0.75rem;
+            color: #5b5b5b;
+            margin-right: 0.4rem;
+            margin-bottom: 0.3rem;
+        }
+
+        /* 提示区 特殊标识 */
+        .tip-card {
+            background: #f6f3ef;
+            border-left: 4px solid #b8ab9b;
+        }
+
+        .tip-card h2 {
+            border-bottom-color: #d6cec2;
+        }
+
+        /* 目录感布局：三列小图标简表 */
+        .index-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem 0.6rem;
+            margin: 1rem 0 0.2rem;
+        }
+
+        .index-item {
+            flex: 0 0 auto;
+            background: #f2efe9;
+            padding: 0.3rem 1rem 0.3rem 0.9rem;
+            border-radius: 40px;
+            font-size: 0.85rem;
+            color: #1e1e1e;
+            border: 1px solid #e2dbd2;
+            letter-spacing: 0.01em;
+        }
+
+        .index-item::before {
+            content: "·";
+            margin-right: 0.3rem;
+            color: #9b8e7e;
+            font-weight: bold;
+        }
+
+        /* 链接样式：自然融入 */
+        .inline-link {
+            color: #7e6b58;
+            text-decoration: none;
+            border-bottom: 1px solid #d7cdc0;
+            transition: border-color 0.2s, color 0.2s;
+            font-weight: 450;
+        }
+
+        .inline-link:hover {
+            border-bottom-color: #7e6b58;
+            color: #4a3f34;
+        }
+
+        /* FAQ 摘要 */
+        .faq-summary {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 0.6rem;
+            margin-top: 0.6rem;
+        }
+
+        .faq-item {
+            padding: 0.6rem 0.8rem;
+            background: #faf8f5;
+            border-radius: 10px;
+            border: 1px solid #ece7e0;
+        }
+
+        .faq-item strong {
+            font-weight: 500;
+            color: #3f3f3f;
+        }
+
+        .faq-item .answer {
+            font-size: 0.9rem;
+            color: #5a5a5a;
+            margin-top: 0.2rem;
+        }
+
+        /* 页脚 */
+        .site-footer {
+            margin-top: 3rem;
+            padding-top: 1.2rem;
+            border-top: 1px solid #e6e3de;
+            font-size: 0.8rem;
+            color: #8b8b8b;
+            text-align: center;
+            line-height: 1.6;
+        }
+
+        .site-footer a {
+            color: #7e6b58;
+            text-decoration: none;
+        }
+
+        .site-footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* 响应式微调 */
+        @media (max-width: 500px) {
+            body {
+                padding: 1.5rem 0.9rem;
+            }
+            .card {
+                padding: 1.2rem 1rem;
+            }
+            .site-header h1 {
+                font-size: 1.4rem;
+            }
+            .index-item {
+                font-size: 0.8rem;
+                padding: 0.2rem 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page-wrapper">
+
+    <!-- 头部：再次光临 + 收藏提示 -->
+    <header class="site-header">
+        <h1>再次光临 · 爱游戏</h1>
+        <div class="sub">收藏这个站点，让好游戏常在手边</div>
+    </header>
+
+    <!-- 目录感卡片：站点内容速览 -->
+    <div class="card">
+        <h2>📋 这里有什么</h2>
+        <p style="margin-bottom:0.6rem;">如果你刚刚回到 <a href="https://mainsite-i-game.com.cn" class="inline-link">爱游戏</a>，下面这些板块或许值得先逛一圈：</p>
+        <div class="index-grid">
+            <span class="index-item">新游推荐</span>
+            <span class="index-item">分类筛选</span>
+            <span class="index-item">近期活动</span>
+            <span class="index-item">玩家笔记</span>
+            <span class="index-item">游戏评测</span>
+            <span class="index-item">更新日志</span>
+            <span class="index-item">收藏夹</span>
+            <span class="index-item">每日签</span>
+        </div>
+        <p style="margin-top:0.8rem; font-size:0.85rem; color:#6b6b6b;">—— 上次你留下的足迹，都还在。</p>
+    </div>
+
+    <!-- 介绍 + 再次访问 / 持续关注 -->
+    <div class="card">
+        <h2>🔖 再回来，就像翻一本旧杂志</h2>
+        <p>有些站点去一次就忘了，但 <a href="https://mainsite-i-game.com.cn" class="inline-link">爱游戏</a> 是那个你隔段时间就想翻开看看的地方。
+        不需要记复杂的路径，也不需要每次都从头适应——页面结构一向清简，新内容摆在顺手的位置。</p>
+        <p style="margin-top:0.5rem;">如果你习惯用浏览器书签，不妨把地址收进收藏夹栏。下次想找点什么玩，直接点开就好。
+        页面加载不快不慢，刚好够你泡杯茶。</p>
+    </div>
+
+    <!-- 信息区：收藏 + 持续关注 实用提醒 -->
+    <div class="card tip-card">
+        <h2>📌 收藏与关注小提示</h2>
+        <ul>
+            <li><strong>浏览器收藏夹</strong> — 按 Ctrl+D (或 Cmd+D) 把当前页加入书签，下次从书签栏一键抵达 <a href="https://mainsite-i-game.com.cn" class="inline-link">爱游戏</a>。</li>
+            <li><strong>移动端</strong> — 在 Safari 或 Chrome 里选择“添加到主屏幕”，图标会常驻桌面，像原生应用一样方便。</li>
+            <li><strong>关注动态</strong> — 站内“更新日志”板块会记录每回调整的内容，隔段时间扫一眼，不会错过变化。</li>
+            <li><strong>临时标记</strong> — 遇到感兴趣的游戏，先用站内“收藏”功能做个记号，回头再细看。</li>
+        </ul>
+        <p style="margin-top:0.6rem; font-size:0.85rem; color:#5f5f5f;">这些小习惯，能让“再次访问”变成自然而然的事。</p>
+    </div>
+
+    <!-- 相关信息 / FAQ 摘要 -->
+    <div class="card">
+        <h2>❓ 常见疑问摘要</h2>
+        <div class="faq-summary">
+            <div class="faq-item">
+                <strong>站点多久更新一次？</strong>
+                <div class="answer">没有固定频率，但每周通常会有新内容上线。收藏页面后，想起时回来看一眼就好。</div>
+            </div>
+            <div class="faq-item">
+                <strong>需要注册才能浏览吗？</strong>
+                <div class="answer">大部分板块直接可见，部分互动功能（如收藏、评论）建议注册，流程很简单。</div>
+            </div>
+            <div class="faq-item">
+                <strong>怎么找到之前看过的游戏？</strong>
+                <div class="answer">使用站内“历史”或“收藏”功能，也可以直接通过浏览器历史记录回溯。</div>
+            </div>
+            <div class="faq-item">
+                <strong>移动端和桌面体验一样吗？</strong>
+                <div class="answer">布局会自适应，卡片和文字在手机上同样清晰，不必放大缩小。</div>
+            </div>
+        </div>
+        <p style="margin-top:0.8rem; font-size:0.85rem;">更多细节，直接在 <a href="https://mainsite-i-game.com.cn" class="inline-link">爱游戏</a> 页面里逛一圈就清楚了。</p>
+    </div>
+
+    <!-- 再次提醒，自然收束 -->
+    <div class="card" style="background:#faf7f2;">
+        <p style="font-size:0.95rem; text-align:center; margin:0.4rem 0;">
+            🌿 常回来坐坐，游戏世界总有一些新角落等你发现。
+        </p>
+        <p style="font-size:0.85rem; text-align:center; color:#6b6b6b; margin-top:0.3rem;">
+            下次想找游戏时，别忘了 <a href="https://mainsite-i-game.com.cn" class="inline-link">爱游戏</a> 就在这里。
+        </p>
+    </div>
+
+    <!-- 页脚 -->
+    <footer class="site-footer">
+        <p>爱游戏 · 再次光临指南 &nbsp;·&nbsp; 页面内容仅作索引参考</p>
+        <p style="margin-top:0.2rem;">
+            <a href="https://mainsite-i-game.com.cn" class="inline-link">爱游戏</a> — 直接回到站点
+        </p>
+    </footer>
+</div>
+</body>
+</html>
